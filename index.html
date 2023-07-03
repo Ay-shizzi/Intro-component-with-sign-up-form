@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro component with sign up form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root{
+    ---Red: hsl(0, 100%, 74%);
+    ---Green: hsl(154, 59%, 51%);
+    ---Dark-Blue: hsl(249, 10%, 26%);
+    ---Grayish-Blue: hsl(246, 25%, 77%);
+    ---Blue: hsl(248, 32%, 49%);
+    ---White: hsl(0, 0%, 100%);
+    ---Font-size: 16px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1200px;
+    padding: 0px 100px;
+    gap: 20px;
+    background: url(./images/bg-intro-desktop.png), var(---Red);
+    color: var(---White);
+}
+.information{
+    align-self: center;
+    width: 50%;
+}
+h1{
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 13px;
+}
+.free-trial{
+    text-align: center;
+    background-color: var(---Blue);
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0px 7px 0px hsla(249, 10%, 26%, 0.2);
+}
+.form{
+    padding: 60px 40px;
+    width: 600px;
+}
+form{
+    background-color: var(---White);
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 7px 0px hsla(249, 10%, 26%, 0.2);
+}
+.trial{
+    font-weight: 700;
+}
+input{
+    display: block;
+    border: 1px solid var(---Dark-Blue);
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    position: relative;
+}
+input:focus{
+    border: 2px solid var(---Dark-Blue);
+}
+.input{
+    margin-bottom: 15px;
+    position: relative;
+}
+button{
+    min-width: -webkit-fill-available;
+    background-color: var(---Green);
+    border: none;
+    padding: 15px;
+    outline: none;
+    border-radius: 8px;
+    border-bottom: outset var(---Green);
+    color: var(---White);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+button:hover{
+    background-color:hsl(154, 90%, 68%);
+    border-bottom: outset hsl(154, 73%, 65%);
+}
+.terms{
+    color: var(---Dark-Blue);
+    font-size: 10px;
+    margin-top: 10px;
+}
+.conditions{
+    color: var(---Red);
+    font-weight: 700;
+}
+.error-message{
+    color: var(---Red);
+    font-size: 10px;
+    font-style: italic;
+    text-align: end;
+    margin-top: 5px;
+}
+.icon-error{
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+    height: 15px;
+}
+.all-errors{
+    display: none;
+}
+
+@media screen and (max-width: 1020px){
+    .container{
+        width: 800px;
+        padding: 0 60px;
+    }
+    .information{
+        width: 70%;
+    }
+    h1{
+        font-size: 26px;
+    }
+    p{
+        font-size: 12px;
+    }
+    .form {
+        padding: 60px 0px;
+        width: 600px;
+    }
+}
+@media screen and (max-width: 806px){
+    .container{
+      width: 600px;
+        flex-direction: column;
+    }
+    .information{
+        text-align: center;
+        margin-top: 100px;
+    }
+    h1{
+        font-size: 36px;
+    }
+    .free-trial{
+        width: 100%;
+        padding: 40px 0;
+    }
+    .information, .form{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 580px){
+    .container{
+        width: 375px;
+        padding: 0 20px;
+    }
+    h1{
+        font-size: 30px;
+    }
+}
+
+    .attribution { font-size: 11px; text-align: center;}
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="information">
+        <h1>
+            Learn to code by watching others
+        </h1>
+        <p>
+            See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+            but understanding how developers think is invaluable. 
+        </p>
+    </section>
+    <section class="form">
+        <div class="free-trial">
+            <p><span class="trial">Try it free 7 days</span> then $20/mo. thereafter</p>
+        </div>
+        <form action="get">
+            <div class="input">
+                <input type="text" placeholder="First Name" id="first-name">
+                <div id="first-name_error" class="all-errors">
+                    <p  class="error-message">First Name cannot be empty</p>
+                    <img class="icon-error" src="./images/icon-error.svg" alt="">
+                </div>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="Last Name" id="last-name">
+                <div id="last-name_error" class="all-errors">
+                    <p class="error-message">Last Name cannot be empty</p>
+                    <img class="icon-error" src="./images/icon-error.svg" alt="">
+                </div>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="Email" id="email">
+                <div id="email_error" class="all-errors">
+                    <p class="error-message">This is not a valid Email</p>
+                    <img class="icon-error" src="./images/icon-error.svg" alt="">
+                </div>
+            </div>
+            <div class="input">
+                <input type="password" placeholder="Password" id="password">
+                <div id="password_error" class="all-errors">
+                    <p class="error-message">Password cannot be empty</p>
+                    <img class="icon-error" src="./images/icon-error.svg" alt="">
+                </div>
+            </div>
+            <button type="submit" id="btn">Claim your free trial</button>
+            <p class="terms">By clicking the button, you are agreeing to our <span class="conditions">Terms and Services</span></p>
+        </form>
+    </section>
+</main>
+<footer>
+  <p class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Abdullahi Lawal (Ay-shizzi)</a>.
+  </p>
+</footer>
+  <script src="mysolution.js"></script>
+</body>
+</html>
